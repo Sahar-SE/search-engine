@@ -1,4 +1,4 @@
-class Event < ApplicationRecord
+class Search < ApplicationRecord
   belongs_to :visitor
 
   #return array of objects with params and count
