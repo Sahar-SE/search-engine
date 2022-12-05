@@ -1,19 +1,9 @@
 class PagesController < ApplicationController
   include TrackSearch
-  
-  before_action :track_search, only: :search
+  before_action :start_analytics,:track_search
 
-  def contact
-    searches=Event.searches
-     render json: searches
-  end
-
-  def home
-
-  end
 
   def search
-
   end
 
   def sign_in
