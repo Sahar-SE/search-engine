@@ -3,12 +3,15 @@ module TrackSearch
 
   def track_search
     if session[:enable_analytics] == true
-      CreateEventJob.perform_later(
+      CreateSearchJob.perform_later(
         visitor: Current.visitor,
-        method: request.method,
         params: event_params
       )
     end
+  end
+
+  def start_analytics
+    session[:enable_analytics] = true
   end
 
   private
