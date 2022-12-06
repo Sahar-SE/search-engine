@@ -1,6 +1,8 @@
 # Search Engine
 This is a realtime search engine that shows what people searched for the most.
 
+## Notes
+  In this project I created a realtime search with analysis of most searched items. I separated user data by getting visitors' user agent so that users data are not mixed up.In this regard, the user is anonymous. I proposed way to sign in and sign up to associate users to the database(Not implemeted yet). In the background , I implemented  active jobs to create and manage analytics .For realtime scalabillty, I propose redis with active jobs. Since heroku has ended free tier , I deployed to render.
 
 ## Live Link
 [Live Link]()
@@ -79,8 +81,7 @@ rspec spec
 ```
 
 
-## Notes
-  In this project I created a realtime search with analysis of most searched items. I separated user data by getting the visitors user agent so that users data are not mixed up.In this regard, the user is anonymous. I proposed way to sign in and sign up to associate users to the database(Not implemeted yet). In the backgroug , I implemented  active jobs to create and manage analytics .For realtime scalabillty, I propose redis with active jobs. Since heroku has ended free tier , I deployed to render.
+
 ## Author
 
 👤 **Rich Adu**
@@ -94,7 +95,7 @@ rspec spec
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/assadounto/budget-app/issues).
+Feel free to check the [issues page](https://github.com/assadounto/budget-app/search-engine).
 
 
 ## Show your support
@@ -104,7 +105,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Credits go to [HelpJuice](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=) at Behance
+- Credits go to Emil and rest of team at [HelpJuice](https://www.Helpjuice.com)
 
 
 ## 📝 License
