@@ -7,6 +7,13 @@ class PagesController < ApplicationController
     @most_searched = Search.searches_ordered_limited
   
       @articles = Article.where("name LIKE ?", "%#{params[:search]}%")
+      @searched_article = []
+      @searched_article.push(params[:search])
+      params[:search] = nil
+
+      def seed
+        @articles = Article.where("created_at > ?", 1.second.ago)
+      end
     
 end
 
