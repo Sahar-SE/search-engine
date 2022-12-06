@@ -10,5 +10,18 @@ class Search < ApplicationRecord
       {name: name, count: count}
       end
   end
-  
+  # return array of ojects with params and count ordered by count
+  def self.searches_ordered
+    searches.sort_by { |hsh| hsh[:count] }.reverse
+  end
+# return array of ojects with params and count ordered by count limited to 5
+  def self.searches_ordered_limited
+    searches_ordered[0..4]
+  end
+
+
+  #return current visitor last search params
+  def self.last_search_params
+    last_search.params
+  end
 end

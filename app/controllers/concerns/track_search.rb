@@ -3,6 +3,7 @@ module TrackSearch
 
   def track_search
     if session[:enable_analytics] == true
+      return if event_params.blank? || event_params ==Current.visitor.searches.last.params
       CreateSearchJob.perform_later(
         visitor: Current.visitor,
         params: event_params

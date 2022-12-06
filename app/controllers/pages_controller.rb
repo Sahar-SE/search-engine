@@ -1,10 +1,14 @@
 class PagesController < ApplicationController
   include TrackSearch
-  before_action :start_analytics,:track_search
+  before_action :start_analytics,:track_search , only: :search
 
 
   def search
-  end
+    @most_searched = Search.searches_ordered_limited
+  
+      @articles = Article.where("name LIKE ?", "%#{params[:search]}%")
+    
+end
 
   def sign_in
     @user = User.find_by!(email: params[:user][:email])
