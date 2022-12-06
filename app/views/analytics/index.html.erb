@@ -1,0 +1,16 @@
+<h2> Top 5 of what people searched for</h2>
+<%@analytics.each_with_index do |search,index| %>
+
+    <table>
+  <tr>
+    <th>Search Item</th>
+    <th>Count</th>
+  </tr>
+
+    <tr>
+        <td><%= search[:name] %></td>
+        <td><%= search[:count] %></td>
+    </tr>
+    </table>
+<% end %>
+  
