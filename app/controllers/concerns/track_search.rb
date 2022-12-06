@@ -19,7 +19,6 @@ module TrackSearch
 
   def filter_sensitive_data(params)
     return if params.nil?
-
     ActiveSupport::ParameterFilter.new(
       Rails.application.config.filter_parameters
     ).filter(params)
