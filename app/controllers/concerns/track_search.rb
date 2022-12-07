@@ -6,7 +6,7 @@ module TrackSearch
       return if event_params.blank? 
       CreateSearchJob.perform_later(
         visitor: Current.visitor,
-        params: event_params
+        params: check(event_params)
       )
     end
   end
@@ -17,6 +17,12 @@ module TrackSearch
 
   private
 
+ 
+  def  check(param)
+    return if param.blank? 
+    param
+ end 
+
   def filter_sensitive_data(params)
     return if params.nil?
     ActiveSupport::ParameterFilter.new(
@@ -25,6 +31,6 @@ module TrackSearch
   end
 
   def event_params
-    params[:search] || filter_sensitive_data(request.request_parameters.presence)
+    params[:search]|| filter_sensitive_data(request.request_parameters.presence)
   end
 end
