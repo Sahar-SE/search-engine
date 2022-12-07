@@ -2,11 +2,15 @@ class CreateSearchJob < ApplicationJob
   queue_as :default
 
   def perform(visitor:,params:)
-      search = visitor.searches.where(params: params.chop).where("created_at > ?", 10.second.ago) || visitor.searches.sanitize_sql_like(params + "%").where("created_at > ?", 10.second.ago)
+      time= 12.seconds.ago
+      search = visitor.searches.where("params LIKE ?", params[0] + "%").where("created_at > ? OR updated_at > ?", time,time)
       if search.present?
-        search.update(params: params)
+        search.update!(params: params)
       else
         visitor.searches.create!(params: params)
       end
   end
 end
+
+
+

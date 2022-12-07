@@ -24,4 +24,8 @@ class Search < ApplicationRecord
   def self.last_search_params
     last_search.params
   end
+  
+  def self.last_search_param
+    searches.order created_at: :desc 
+  end
 end

@@ -5,18 +5,9 @@ class PagesController < ApplicationController
 
   def search
     @most_searched = Search.searches_ordered_limited
-  
-      @articles = Article.where("name LIKE ?", "%#{params[:search]}%")
-      @searched_article = []
-      @searched_article.push(params[:search])
-      params[:search] = nil
-
-      def seed
-        @articles = Article.where("created_at > ?", 1.second.ago)
-      end
-    
-end
-
+    @articles = Article.where("name LIKE ?", "%#{params[:search]}%")
+    @visitor_recent_search = Visitor.find(session[:visitor_id]).searches.last(4)
+  end
   # def sign_in
   #   @user = User.find_by!(email: params[:user][:email])
   #   Current.visitor.presence && Current.visitor.update!(user: @user)
