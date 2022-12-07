@@ -1,3 +1,4 @@
 class ApplicationController < ActionController::Base
-    include SetCurrentVisitor
+    include TrackSearch
+    before_action :start_analytics
 end
