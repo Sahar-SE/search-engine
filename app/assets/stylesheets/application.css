@@ -19,4 +19,8 @@
     margin-bottom: 2rem;
  }
 
+ body {
+   background-color: aqua;
+ }
+
     /* Path: app\assets\stylesheets\bootstrap_and_overrides.css */
