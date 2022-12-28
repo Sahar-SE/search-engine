@@ -1,5 +1,12 @@
 <h2>Your Recent Searches</h2>
 <% @visitor_recent_search.map  do |search|%> 
-  <div><%=search.params%></div>
+  <div class="hist-cont">
+  <div>searched <%=search.params%></div>
+  <% if search.movie.present?%>
+  <div>and clicked  <%=search.movie.title%></div>
+  </div>
+  <% else %>
+  <div> Movie not found</div>
+  </div>
 <% end %>
- 
+<% end %>
