@@ -11,6 +11,13 @@ module TrackSearch
     end
   end
 
+  def update_actual_search
+    UpdateSearchJob.perform_later(
+      visitor: Current.visitor,
+      params: movie_params
+    )
+  end
+
   def start_analytics
     session[:enable_analytics] = true
   end
@@ -32,5 +39,9 @@ module TrackSearch
 
   def event_params
     params[:search]|| filter_sensitive_data(request.request_parameters.presence)
+  end
+
+  def movie_params
+    params[:id]
   end
 end
