@@ -10,20 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_233753) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_28_064627) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "movies", force: :cascade do |t|
+    t.string "title"
+    t.string "genre"
+    t.string "country"
+    t.text "actors"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "searches", force: :cascade do |t|
     t.string "params"
+    t.bigint "movie_id"
     t.bigint "visitor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_searches_on_movie_id"
     t.index ["visitor_id"], name: "index_searches_on_visitor_id"
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "title"
+    t.string "artist"
+    t.string "genre"
+    t.text "lyrics"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_233753) do
     t.index ["user_id"], name: "index_visitors_on_user_id"
   end
 
+  add_foreign_key "searches", "movies", on_delete: :cascade
   add_foreign_key "searches", "visitors", on_delete: :cascade
   add_foreign_key "visitors", "users", on_delete: :cascade
 end

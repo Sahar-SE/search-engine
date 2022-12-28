@@ -19,8 +19,16 @@
     margin-bottom: 2rem;
  }
 
+ .search-field {
+      width: 70%;
+      margin:auto;
+ }
  body {
    background-color: aqua;
+ }
+
+ .hist-cont {
+   display: flex;
  }
 
     /* Path: app\assets\stylesheets\bootstrap_and_overrides.css */
