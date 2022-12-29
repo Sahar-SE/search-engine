@@ -19,7 +19,7 @@ module Searchable
         bool: {
           should: [
             { match: { title: { query: query, fuzziness: "AUTO"  }}},
-            { match: { description: { query: query} }},
+            { match: { description: { query: query, fuzziness: "AUTO"  } }},
             { match: {country: query }},
           ],
         }

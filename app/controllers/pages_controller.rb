@@ -15,9 +15,10 @@ class PagesController < ApplicationController
   end
 
   def history
-    @visitor_recent_search = Current.visitor.searches.includes(:movie).order(created_at: :desc).limit(10)
-  end
-
-  def sign_in
+    if logged_in?
+      @visitor_recent_search =  current_user.searches.includes(:movie).order(created_at: :desc).limit(10)
+     else
+       @visitor_recent_search = Current.visitor.searches.includes(:movie).order(created_at: :desc).limit(10)
+   end
   end
 end

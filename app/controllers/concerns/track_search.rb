@@ -18,6 +18,7 @@ module TrackSearch
     )
   end
 
+
   def start_analytics
     session[:enable_analytics] = true
   end

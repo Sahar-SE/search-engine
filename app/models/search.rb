@@ -1,7 +1,7 @@
 class Search < ApplicationRecord
   belongs_to :visitor
   has_one :movie, class_name: "Movie", foreign_key: "id", primary_key: "movie_id"
-
+  
   #return array of objects with params and count
   def self.searches
     select(:params)
