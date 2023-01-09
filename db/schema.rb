@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_09_142328) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_09_144154) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,12 +34,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_142328) do
     t.index ["visitor_id"], name: "index_searches_on_visitor_id"
   end
 
+  create_table "songs", force: :cascade do |t|
+    t.string "title"
+    t.string "artist"
+    t.string "genre"
+    t.text "lyrics"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    # here must be something like this: t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "visitors", force: :cascade do |t|
