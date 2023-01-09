@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_142328) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    # here must be something like this: t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "visitors", force: :cascade do |t|
