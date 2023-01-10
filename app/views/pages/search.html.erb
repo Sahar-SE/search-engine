@@ -12,10 +12,9 @@
       <%= form.submit 'Search', class: "px-4 py-3 font-medium bg-orange-300 text-neutal-900 rounded flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-orange-100" %>
     </div>
     <% end %>
-    <%# I commented this line because of accessing to pages %>
-     <%# <%= turbo_frame_tag "articles" do %> 
-      <%# <div class="search"><%= render partial: 'search_result', collection: @results, as: :result</div> %>
-      <%# <%end %> 
+     <%= turbo_frame_tag "articles" do %> 
+       <div class="search"><%= render partial: 'search_result', collection: @results, as: :result %></div>
+      <%end %> 
       
 </div>
  <div class="trend">
