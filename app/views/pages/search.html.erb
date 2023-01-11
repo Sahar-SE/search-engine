@@ -3,7 +3,7 @@
    <p class="text-yellow-400 font-mono text-2xl font-extrabold leading-10 ml-1.5 capitalize"><%= current_user.email%><p><br>
    <button class="px-4 py-3 bg-yellow-400 rounded-full font-medium"><%= link_to "Sign Out", sign_out_path %></button>
 <% else %>
-  <div class="">Hey there anonymous user <%= link_to "Sign In", sign_in_path %> to manage your analytics</div>
+  <h1  class="text-center">Hey there anonymous user <%= link_to "Sign In", sign_in_path %> to manage your analytics</h1>
 <% end %>
 
 <div class="search-field"><%= form_with(url: search_path, method: :get, data: {controller: "search-form",search_form_target:"form",turbo_frame: "articles"}) do |form| %>
