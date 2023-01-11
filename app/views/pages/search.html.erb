@@ -1,4 +1,5 @@
 <% if  current_user %>
+  <%# At line 3 instead of email access name %>
    <p class="text-yellow-400 font-mono text-2xl font-extrabold leading-10 ml-1.5 capitalize"><%= current_user.email%><p><br>
    <button class="px-4 py-3 bg-yellow-400 rounded-full font-medium"><%= link_to "Sign Out", sign_out_path %></button>
 <% else %>
