@@ -1,14 +1,14 @@
 <% if  current_user %>
   <%# At line 3 instead of email access name %>
-  <div class="flex flex-row justify-between m-2">
-   <p class="text-yellow-500 font-mono text-2xl font-extrabold leading-10 ml-1.5 capitalize"><%= current_user.email%></p>
-   <span class="px-4 py-3 bg-yellow-400 rounded-full font-medium hover:bg-yellow-600"><%= link_to "Sign Out", sign_out_path %></span>
+  <div class="">
+   <p class="text-yellow-500 font-mono text-2xl float-left font-extrabold leading-10 ml-2 capitalize"><%= current_user.email%></p>
+   <p class="float-right p-2 text-yellow-400 font-medium mr-3 mt-3 mb-5"><%= link_to "Sign Out", sign_out_path %></p>
   </div>
 <% else %>
-  <div class="float-right p-2 text-yellow-500 mr-3 mt-3 mb-5"><%= link_to "Sign In", sign_in_path %></div>
+  <div class="float-right p-2 text-yellow-400 font-medium mr-3 mt-3 mb-5"><%= link_to "Sign In", sign_in_path %></div>
 <% end %>
 
-<div class="flex flex-row float-right text-yellow-500 mb-5 mt-3">
+<div class="flex flex-row float-right  text-yellow-400 mb-5 mt-3">
   <p class="p-2"><%=link_to "Search History ",history_path%></p>
   <p class="p-2"><%=link_to "Analytics",analytics_path%></p>
 </div><br>
