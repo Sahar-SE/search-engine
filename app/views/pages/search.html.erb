@@ -1,7 +1,9 @@
 <% if  current_user %>
   <%# At line 3 instead of email access name %>
-   <p class="text-yellow-400 font-mono text-2xl font-extrabold leading-10 ml-1.5 capitalize"><%= current_user.email%><p><br>
-   <button class="px-4 py-3 bg-yellow-400 rounded-full font-medium hover:bg-yellow-600"><%= link_to "Sign Out", sign_out_path %></button>
+  <div class="flex flex-row justify-between">
+   <p class="text-yellow-500 font-mono text-2xl font-extrabold leading-10 ml-1.5 capitalize"><%= current_user.email%></p>
+   <span class="px-4 py-3 bg-yellow-400 rounded-full font-medium hover:bg-yellow-600"><%= link_to "Sign Out", sign_out_path %></span>
+  </div>
 <% else %>
   <%= link_to "Sign In", sign_in_path %>
 <% end %>
