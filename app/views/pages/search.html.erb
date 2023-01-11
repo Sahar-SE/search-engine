@@ -13,9 +13,9 @@
       <div><%= form.submit 'Search', class: "px-8 py-3 font-medium bg-yellow-400 rounded-full cursor-pointer hover:bg-yellow-500 focus:ring-4 ring-0 focus:ring-yellow-100" %></div>
     </div>
     <% end %>
-     <%# <%= turbo_frame_tag "articles" do %>  
-       <%# <div class="search"><%= render partial: 'search_result', collection: @results, as: :result %></div> 
-      <%# <%end  %> 
+     <%= turbo_frame_tag "articles" do %>  
+        <div class="search"><%= render partial: 'search_result', collection: @results, as: :result %></div> 
+     <%end  %> 
       
 </div>
  <div class="trend">
