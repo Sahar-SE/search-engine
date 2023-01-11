@@ -1,16 +1,20 @@
 <% if  current_user %>
   <%# At line 3 instead of email access name %>
-  <div class="flex flex-row justify-between">
+  <div class="flex flex-row justify-between m-2">
    <p class="text-yellow-500 font-mono text-2xl font-extrabold leading-10 ml-1.5 capitalize"><%= current_user.email%></p>
    <span class="px-4 py-3 bg-yellow-400 rounded-full font-medium hover:bg-yellow-600"><%= link_to "Sign Out", sign_out_path %></span>
   </div>
 <% else %>
-  <%= link_to "Sign In", sign_in_path %>
+  <div class="float-right p-2 text-yellow-500 mr-3 mt-3 mb-5"><%= link_to "Sign In", sign_in_path %></div>
 <% end %>
-<%=link_to "See Your Search History",history_path%>
-  <%=link_to "See Analytics",analytics_path%>
-<h1  class="text-center text-4xl text-yellow-500 font-medium m-10">Hey there anonymous user sign in to manage your analytics</h1>
-<div class="search-field"><%= form_with(url: search_path, method: :get, data: {controller: "search-form",search_form_target:"form",turbo_frame: "articles"}) do |form| %>
+
+<div class="flex flex-row float-right text-yellow-500 mb-5 mt-3">
+  <p class="p-2"><%=link_to "Search History ",history_path%></p>
+  <p class="p-2"><%=link_to "Analytics",analytics_path%></p>
+</div><br>
+<div class="">
+<h1  class="text-center text-4xl text-yellow-500 font-medium m-10 mt-20">Hey there anonymous user sign in to manage your analytics</h1>
+<%= form_with(url: search_path, method: :get, data: {controller: "search-form",search_form_target:"form",turbo_frame: "articles"}) do |form| %>
     <h1 class="text-white text-4xl text-center p-7"><%= form.label :query, "Movies Engine" %></h1>
     <div class="flex flex-row space-x-3 justify-center mt-10">
       <div><%= form.text_field :search, class: "py-3 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" ,data: {action: "input->search-form#search"} ,value: params[:search] %></div>
