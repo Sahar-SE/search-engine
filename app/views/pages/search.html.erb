@@ -12,24 +12,29 @@
   <p class="p-2"><%=link_to "Search History ",history_path%></p>
   <p class="p-2"><%=link_to "Analytics",analytics_path%></p>
 </div><br>
-<div class="">
-<h1  class="text-center text-4xl text-yellow-500 font-medium m-10 mt-20">Hey there anonymous user sign in to manage your analytics</h1>
-<%= form_with(url: search_path, method: :get, data: {controller: "search-form",search_form_target:"form",turbo_frame: "articles"}) do |form| %>
-    <h1 class="text-white text-4xl text-center p-7"><%= form.label :query, "Movies Engine" %></h1>
+<div class="flex flex-col justify-center p-10">
+  <%= form_with(url: search_path, method: :get, data: {controller: "search-form",search_form_target:"form",turbo_frame: "articles"}) do |form| %>
+  <h1 class="text-white text-4xl text-center p-7"><%= form.label :query, "Movies Engine" %></h1>
     <div class="flex flex-row space-x-3 justify-center mt-10">
       <div><%= form.text_field :search, class: "py-3 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" ,data: {action: "input->search-form#search"} ,value: params[:search] %></div>
-      <div><%= form.submit 'Search', class: "px-8 py-3 font-medium bg-yellow-400 rounded-full cursor-pointer hover:bg-yellow-600 focus:ring-4 ring-0 focus:ring-yellow-100" %></div>
+        <div class="px-6 py-3 font-medium bg-yellow-400 rounded-full cursor-pointer hover:bg-yellow-600 focus:ring-4 ring-0 focus:ring-yellow-100"><%= form.submit 'Search'%>
+      </div>
     </div>
+    <p class="text-center text-yellow-500 font-medium m-10">Hey there anonymous user sign in to manage your analytics</p>
+</div>
     <% end %>
+    <div class="text-center">
      <%= turbo_frame_tag "articles" do %>  
         <div class="search"><%= render partial: 'search_result', collection: @results, as: :result %></div> 
      <%end  %> 
-      <p class="text-center text-yellow-500 font-medium m-10">Hey there anonymous user sign in to manage your analytics</p>
- <div class="trend">
- <h2>Trending Searches</h2>
-    <%@most_searched.each do |search| %>
-      <div><%= search[:name] %></div>
-    <% end %>
-    </div>
+     </div>
+
+
+ 
+  <span class="flex h-3 w-3">
+  <span class="animate-ping absolute inline-flex h-20 w-20 rounded-full bg-yellow-400 opacity-65 item-center"></span>
+  <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500 rounded-full"></span>
+</span>
+</div>
 
  
