@@ -20,7 +20,9 @@
         <div class="hover:text-white px-6 py-3 bg-yellow-400 rounded-full cursor-pointer hover:bg-yellow-600 focus:ring-4 ring-0 focus:ring-yellow-100"><%= form.submit 'Search'%>
       </div>
     </div>
+    <% if  !current_user %>
     <p class="text-center text-yellow-500 font-bold m-10">Hey there anonymous user sign in to manage your analytics</p>
+    <% end %>
 </div>
     <% end %>
     <div class="text-center">
