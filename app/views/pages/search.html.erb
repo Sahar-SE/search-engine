@@ -2,25 +2,25 @@
   <%# At line 3 instead of email access name %>
   <div class="">
    <p class="text-yellow-500 font-mono text-2xl float-left font-extrabold leading-10 ml-2 capitalize"><%= current_user.email%></p>
-   <p class="float-right p-2 text-yellow-400 font-medium mr-3 mt-3 mb-5"><%= link_to "Sign Out", sign_out_path %></p>
+   <p class="float-right p-2 text-yellow-400 font-bold mr-3 mt-3 mb-5"><%= link_to "Sign Out", sign_out_path %></p>
   </div>
 <% else %>
-  <div class="float-right p-2 text-yellow-400 font-medium mr-3 mt-3 mb-5"><%= link_to "Sign In", sign_in_path %></div>
+  <div class="float-right p-2 text-yellow-400 font-bold mr-3 mt-3 mb-5"><%= link_to "Sign In", sign_in_path %></div>
 <% end %>
 
-<div class="flex flex-row float-right text-yellow-400 mb-5 mt-3">
+<div class="flex flex-row float-right text-yellow-400 mb-5 mt-3 font-bold">
   <p class="p-2"><%=link_to "Search History ",history_path%></p>
   <p class="p-2"><%=link_to "Analytics",analytics_path%></p>
 </div><br>
-<div class="flex flex-col justify-center p-10">
+<div class="flex flex-col justify-center p-10 font-bold">
   <%= form_with(url: search_path, method: :get, data: {controller: "search-form",search_form_target:"form",turbo_frame: "articles"}) do |form| %>
   <h1 class="text-white text-4xl text-center p-7"><%= form.label :query, "Movies Engine" %></h1>
     <div class="flex flex-row space-x-3 justify-center mt-10">
       <div><%= form.text_field :search, class: "py-3 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" ,data: {action: "input->search-form#search"} ,value: params[:search] %></div>
-        <div class="px-6 py-3 font-medium bg-yellow-400 rounded-full cursor-pointer hover:bg-yellow-600 focus:ring-4 ring-0 focus:ring-yellow-100"><%= form.submit 'Search'%>
+        <div class="hover:text-white px-6 py-3 bg-yellow-400 rounded-full cursor-pointer hover:bg-yellow-600 focus:ring-4 ring-0 focus:ring-yellow-100"><%= form.submit 'Search'%>
       </div>
     </div>
-    <p class="text-center text-yellow-500 font-medium m-10">Hey there anonymous user sign in to manage your analytics</p>
+    <p class="text-center text-yellow-500 font-bold m-10">Hey there anonymous user sign in to manage your analytics</p>
 </div>
     <% end %>
     <div class="text-center">
