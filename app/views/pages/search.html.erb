@@ -8,7 +8,7 @@
   <div class="float-right p-2 text-yellow-400 font-medium mr-3 mt-3 mb-5"><%= link_to "Sign In", sign_in_path %></div>
 <% end %>
 
-<div class="flex flex-row float-right  text-yellow-400 mb-5 mt-3">
+<div class="flex flex-row float-right text-yellow-400 mb-5 mt-3">
   <p class="p-2"><%=link_to "Search History ",history_path%></p>
   <p class="p-2"><%=link_to "Analytics",analytics_path%></p>
 </div><br>
@@ -26,15 +26,21 @@
     <div class="text-center">
      <%= turbo_frame_tag "articles" do %>  
         <div class="search"><%= render partial: 'search_result', collection: @results, as: :result %></div> 
-     <%end  %> 
+     <% end %> 
      </div>
-
-
- 
-  <span class="flex h-3 w-3">
-  <span class="animate-ping absolute inline-flex h-20 w-20 rounded-full bg-yellow-400 opacity-65 item-center"></span>
-  <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500 rounded-full"></span>
-</span>
+<div class="">
+  
 </div>
+
+<div class="flex flex-row ml-5 absolute bottom-5 left-0">
+<span class="h-3 w-3 px-2 py-1 mb-2">
+    <span class="animate-ping absolute bottom-0 left-0 inline-flex h-10 w-10 rounded-full bg-yellow-400 opacity-65 item-center"></span>
+    <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500 rounded-full"></span>
+  </span>
+  <p class="px-2 py-1 text-xl text-yellow-600">Trending Searches:</p>
+    <% @most_searched.each do |search| %>
+     <div class="bg-yellow-400 ml-1 px-3 py-1 rounded-bl-2xl rounded-tr-2xl hover:bg-yellow-600 hover:text-white drop-shadow-2xl"> <%=search[:name] %></div>
+    <% end %>
+
 
  
