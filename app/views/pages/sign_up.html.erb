@@ -4,7 +4,7 @@
 <div class=""><%= form_with(url: "/sign_up" ,method: :post,local: true) do |f| %> 
   <%# Put a text field %>
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email, class: "overflow-hidden py-2 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" %>
   <%= f.label :password %>
   <%= f.password_field :password %>
   <%= f.label :password_confirmation %>
