@@ -1,5 +1,6 @@
+<div class="wrapper bg-yellow-400 w-2/6 h-96 mt-24 rounded-bl-3xl rounded-tr-3xl hover:bg-yellow-500 hover:text-white">
 <h2>Sign Up</h2>
-<%= form_with(url: "/sign_up" ,method: :post,local: true) do |f| %> 
+<div class="block"><%= form_with(url: "/sign_up" ,method: :post,local: true) do |f| %> 
   <%# Put a text field %>
   <%= f.label :email %>
   <%= f.text_field :email %>
@@ -9,3 +10,5 @@
   <%= f.password_field :password_confirmation %>
   <%= f.submit "Create my account" %>
 <% end %>
+</div>
+</div>
