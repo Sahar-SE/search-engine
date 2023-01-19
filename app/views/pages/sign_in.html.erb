@@ -3,11 +3,11 @@
 <h2 class="text-center mb-10 font-bold text-2xl">Sign In</h2>
 <%= form_with(url: "/sign_in" ,method: :post,local: true) do |f| %>
    <div><%= f.label :email %><br>
-      <div><%= f.text_field :email, class: "overflow-hidden py-2 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" %>
+      <div><%= f.text_field :email, class: "text-black py-2 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" %>
    </div>
    
    <div><%= f.label :password %>
-      <%= f.password_field :password, class: "overflow-hidden py-2 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" %>
+      <%= f.password_field :password, class: "text-black py-2 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" %>
    </div>
 
    <div><%= f.submit "Sign in", class: "h-12 w-20 mt-3 text-center bg-lime-600 drop-shadow-2xl rounded-bl-3xl rounded-tr-3xl hover:bg-black hover:bg-lime-500" %></div>
