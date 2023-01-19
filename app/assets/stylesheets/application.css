@@ -20,7 +20,11 @@
     margin-bottom: 1rem;
  }
   .bg {
-    background-image: url(./bg.jpg);
+    background-image:linear-gradient(rgba(10, 10, 10, 0.52), #000000ba), url(./bg4.jpg);
+    background-size: 1400px 1000px;
+    background-blend-mode:darken;
+    background-repeat: no-repeat;
+    /* background-position: center; */
   }
  .hist-cont {
    display: flex;
@@ -35,6 +39,34 @@
  .search {
    margin: 10px 10px 10px;
  }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(250 204 21); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(234 179 8); 
+}
 
   
     /* Path: app\assets\stylesheets\bootstrap_and_overrides.css */
