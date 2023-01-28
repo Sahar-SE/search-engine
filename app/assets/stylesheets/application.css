@@ -24,13 +24,13 @@
     background-size: 1400px 1000px;
     background-blend-mode:darken;
     background-repeat: no-repeat;
-    /* background-position: center; */
+    background-attachment:fixed;
   }
- .hist-cont {
+ /* .hist-cont {
    display: flex;
    gap: 5px;
    margin-bottom: 1rem;
- }
+ } */
 
  .bold {
    font-weight: bold;
@@ -43,7 +43,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   margin: 0 auto;
 }
 
