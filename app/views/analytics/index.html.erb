@@ -4,14 +4,14 @@
 
     <table class="mt-14 table-fixed text-white text-center drop-shadow-2xl rounded-bl-3xl rounded-tr-3xl">
     <thead>
-  <tr class="bg-yellow-400 hover:text-black hover:bg-yellow-500">
+  <tr class="bg-yellow-400 hover:text-black hover:bg-yellow-500 border-b-2">
     <th class="p-5 m-2 rounded-bl-3xl">Search Item</th>
     <th class="p-5 m-2 rounded-tr-3xl">Count</th>
   </tr>
   </thead>
 <%@analytics.each_with_index do |search,index| %>
   <tbody>
-    <tr class="bg-lime-500 hover:bg-lime-600 hover:text-black">
+    <tr class="bg-lime-500 hover:bg-lime-600 hover:text-black border-t-2">
         <td class="p-5 rounded-bl-3xl"><%= search[:name] %></td>
         <td class="p-5 rounded-tr-3xl"><%= search[:count] %></td>
     </tr>

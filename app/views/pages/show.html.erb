@@ -1,9 +1,15 @@
-<h2><%= @movie.title %></h2>
-<p>genre: <%= @movie.genre %></p>
-<p>country: <%= @movie.country %></p>
-<p>actors: <%= @movie.actors %></p>
-<p>synopsis: <%= @movie.description %></p>
- 
+<h2 class="mt-10 text-4xl text-white font-bold text-center"><%= @movie.title %></h2>
+
+<div class="wrapper bg-yellow-400 w-4/6 mt-8 drop-shadow-2xl rounded-bl-3xl rounded-tr-3xl hover:bg-yellow-500">
+  <h3 class="text-2xl font-bold p-5">genre </h3>
+    <p class="pr-5 pl-5 text-salt-500"><%= @movie.genre %></p>
+  <h3 class="text-2xl font-bold p-5">country </h3>
+    <p class="pr-5 pl-5 text-salt-500"><%= @movie.country %></p>
+  <h3 class="text-2xl font-bold p-5">actors </h3>
+    <p class="pr-5 pl-5 text-salt-500"><%= @movie.actors %></p>
+  <h3 class="text-2xl font-bold p-5">synopsis </h3>
+    <p class="pr-5 pl-5 pb-5 text-salt-500"><%= @movie.description %></p>
+</div>
 
 
 
