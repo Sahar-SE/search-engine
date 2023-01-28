@@ -24,7 +24,7 @@
     <div class="hover:text-white ml-3 px-6 py-3 bg-yellow-400 rounded-full cursor-pointer hover:bg-yellow-600 focus:ring-4 ring-0 focus:ring-yellow-100"><%= form.submit 'Search'%></div>
       <div class="relative">
       <div data-controller="showhide">
-        <div><%= form.text_field :search, class: "overflow-hidden py-3 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" ,{data: {action: "input->search-form#search"}, {showhide_target: "input"} },value: params[:search] %></div>
+        <div><%= form.text_field :search, class: "overflow-hidden py-3 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" , data: {action: "input->search-form#search"}, value: params[:search] %></div>
           <%# Section for search results %>
           <div data-showhide-target="output" class="absolute top-9 right-2 w-85 rounded-lg bg-white -z-10 h-96 overflow-auto touch-auto scroll-mr-5 scroll-px-1">
             <%= turbo_frame_tag "articles" do %> 
