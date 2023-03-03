@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "enable_analytics", to: "analytics#enable", as: :enable_analytics
   get  "analytics", to: "analytics#index"
   get  "history", to: "pages#history"
+  get  "trend", to: "pages#trend"
   post  "sign_in", to: "users#sign_in"
   post  "sign_up", to: "users#sign_up"
   get   "sign_up", to: "pages#sign_up"

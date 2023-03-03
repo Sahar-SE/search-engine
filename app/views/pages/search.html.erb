@@ -1,25 +1,59 @@
-<% if  current_user %>
-   <div>Hey there <%= current_user.email%> <%= link_to "Sign Out", sign_out_path %></div>
+<%# Section for sign in and sign out %>
+<div><% if  current_user %>
+  <%# At line 3 instead of email access name %>
+  <div class="">
+   <p class="text-yellow-500 font-mono text-2xl float-left font-extrabold leading-10 ml-2 capitalize"><%= current_user.email%></p>
+   <p class="float-right p-2 text-yellow-400 font-bold mr-3 mt-3 mb-5"><%= link_to "Sign Out", sign_out_path %></p>
+  </div>
 <% else %>
-  <div>Hey there anonymous user <%= link_to "Sign In", sign_in_path %> to manage your analytics</div>
-<% end %>
+  <div class="float-right p-2 text-yellow-400 font-bold mr-3 mt-3 mb-5"><%= link_to "Sign In", sign_in_path %></div>
+<% end %> 
 
-<div class="search-field"><%= form_with(url: search_path, method: :get, data: {controller: "search-form",search_form_target:"form",turbo_frame: "articles"}) do |form| %>
-    <%= form.label :query, "Movs Engine", class: "block mb-2" %>
-    <div class="flex space-x-3">
-      <%= form.text_field :search, class: "py-3 px-4 rounded border ring-0 focus:ring-4 focus:ring-orange-100 focus:shadow-none focus:border-orange-500 focus:outline-none" ,data: {action: "input->search-form#search"} ,value: params[:search] %>
-      <%= form.submit 'Search', class: "px-4 py-3 font-medium bg-orange-300 text-neutal-900 rounded flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-orange-100" %>
-    </div>
-    <% end %>
-     <%= turbo_frame_tag "articles" do %>
-      <div class="search"><%= render partial: 'search_result', collection: @results, as: :result %></div>
-      <%end %>
+<%# Section for navigation bar %>
+<div class="flex flex-row float-right text-yellow-400 mb-5 mt-3 font-bold">
+  <p class="p-2"><%=link_to "Search History ",history_path%></p>
+  <p class="p-2"><%=link_to "Analytics",analytics_path%></p>
+</div><br>
 </div>
- <div class="trend">
- <h2>Trending Searches</h2>
-    <%@most_searched.each do |search| %>
-      <div><%= search[:name] %></div>
-    <% end %>
+<%# Section for Search form %>
+<%# <div class="flex flex-col justify-center p-10 font-bold"> %>
+<div class="wrapper mt-10 block">
+  <%= form_with(url: search_path, method: :get, data: {controller: "search-form",search_form_target:"form",turbo_frame: "articles"}) do |form| %>
+  <h1 class="text-white text-4xl text-center p-7"><%= form.label :query, "Movies Engine" %></h1>
+    <div class="flex flex-row-reverse space-x-3 justify-center mt-10">
+    <div class="hover:text-white ml-3 px-6 py-3 bg-yellow-400 rounded-full cursor-pointer hover:bg-yellow-600 focus:ring-4 ring-0 focus:ring-yellow-100"><%= form.submit 'Search'%></div>
+      <div class="relative">
+      <div data-controller="showhide">
+        <div><%= form.text_field :search, class: "overflow-hidden py-3 px-4 rounded-full border ring-0 focus:ring-4 focus:ring-yellow-100 focus:shadow-none focus:border-yellow-400 focus:outline-none w-96" , data: {action: "input->search-form#search"}, value: params[:search] %></div>
+          <%# Section for search results %>
+          <div data-showhide-target="output" class="absolute top-9 right-2 w-85 rounded-lg bg-white -z-10 h-96 overflow-auto touch-auto scroll-mr-5 scroll-px-1">
+            <%= turbo_frame_tag "articles" do %> 
+              <div class="search overflow-auto touch-pan-y"><%=render partial: 'search_result', collection: @results, as: :result, class: "py-2 mt-4" %></div> 
+            <% end %> 
+          </div>
+        </div>
     </div>
-  <div><%=link_to "See Your Search History",history_path%></div>
-  <%=link_to "See Analytics",analytics_path%>
+      <% if  !current_user %>
+        <p class="absolute text-center mt-20 text-yellow-500 font-bold m-10 -z-20">Hey there anonymous user sign in to manage your analytics</p>
+      <% end %>
+  <% end %>
+  
+</div>
+</div>
+
+
+
+<%# Section for trending %>
+<div class="flex flex-row ml-5 absolute bottom-5 left-0 -z-20">
+  <span class="h-3 w-3 px-2 py-1 mb-2">
+    <span class="animate-ping absolute bottom-0 left-0 inline-flex h-10 w-10 rounded-full bg-yellow-400 opacity-65 item-center"></span>
+    <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500 rounded-full"></span>
+  </span>
+  <p class="px-2 py-1 text-xl text-yellow-600">Trending Searches:</p>
+    <% @most_searched.each do |search| %>
+     <div class="bg-yellow-400 ml-1 px-3 py-1 rounded-bl-2xl rounded-tr-2xl hover:bg-yellow-600 hover:text-white drop-shadow-2xl"> <%=search[:name] %></div>
+    <% end %>
+</div>
+
+
+ 

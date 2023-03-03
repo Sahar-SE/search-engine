@@ -1,16 +1,17 @@
-<h2>Your Recent Searches</h2>
-<% @visitor_recent_search.map  do |search|%> 
-  <div class="hist-cont">
-  <div>Searched <span class="bold"><%=search.params%></span></div>
+<h2 class="mt-10 text-4xl text-white font-bold text-center">Your Recent Searches</h2>
+<% @visitor_recent_search.map  do |search|%>
+
+<div class="wrapper bg-yellow-400 w-3/6 h-5/6 mt-8 rounded-full hover:bg-yellow-500 hover:text-white">Searched <span class="bold"><%=search.params%></span>
   <% if search.movie.present?%>
   <div>and found <%=link_to search.movie.title, movie_path(search.movie)%></div>
-  </div>
   <% else %>
-  <div> Movie not found</div>
+  <div>Movie not found</div>
+  <% end %>
   </div>
 <% end %>
-<% end %>
+
 <%if current_user%>
 <%= link_to "delete history", clear_history_path%>
 
 <%end%>
+
